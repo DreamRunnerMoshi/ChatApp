@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-iui(b64p(2%369xs&eaz7%06!t0$7_h6&g(*oao0vpkyjy9wqt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["chat.us-east-1.elasticbeanstalk.com"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
