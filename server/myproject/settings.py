@@ -69,7 +69,7 @@ TEMPLATES = [
 ]
 
 ASGI_APPLICATION = "myproject.asgi.application"
-#WSGI_APPLICATION = "myproject.wsgi.application"
+# WSGI_APPLICATION = "myproject.wsgi.application"
 # ASGI_APPLICATION = "myproject.asgi.application"
 
 
@@ -124,3 +124,35 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+import os
+import sys
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout,  # You can also use 'sys.stderr'
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),  # Change to 'INFO' or 'ERROR' as needed
+            'propagate': True,
+        },
+    },
+}

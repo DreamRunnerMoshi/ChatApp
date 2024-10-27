@@ -3,7 +3,9 @@
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
 from django.urls import path
-from .consumers import ChatGPTConsumer
+
+from myproject.consumers import ChatGPTConsumer
+from .chat_models import LangChainGPT
 
 websocket_urlpatterns = [
     path('ws/chatgpt/', ChatGPTConsumer.as_asgi()),
