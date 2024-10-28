@@ -5,7 +5,7 @@ from channels.auth import AuthMiddlewareStack
 from django.urls import path
 
 from myproject.consumers import ChatGPTConsumer
-from .chat_models import LangChainGPT
+from .chat_models import alchemist
 
 websocket_urlpatterns = [
     path('ws/chatgpt/', ChatGPTConsumer.as_asgi()),

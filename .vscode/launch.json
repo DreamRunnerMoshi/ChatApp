@@ -13,18 +13,7 @@
             ],
             "django": true,
             "autoStartBrowser": false,
-            "program": "${workspaceFolder}/myproject/manage.py"
-        },
-        {
-            "name": "Python: Django Daphne",
-            "request": "launch",
-            "type": "debugpy",
-            "program": "${workspaceFolder}/myproject/myproject/asgi.py",
-            "args": [
-                "daphne",
-                "myproject.asgi:application"
-            ],
-            "django": true
+            "program": "${workspaceFolder}/server/manage.py"
         }
     ]
 }

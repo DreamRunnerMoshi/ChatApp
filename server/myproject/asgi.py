@@ -6,11 +6,11 @@ from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
 from django.urls import path
 
-from myproject.chat_models.LangChainGPT import LangChainGPT
+from myproject.chat_models.alchemist import LangChainGPT
 
-from .consumers import ChatGPTConsumer
+from myproject.consumers import ChatGPTConsumer
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myproject.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'server.settings')
 
 
 websocket_urlpatterns = [
