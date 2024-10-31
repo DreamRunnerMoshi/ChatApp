@@ -1,5 +1,6 @@
 from pathlib import Path
 from bs4 import BeautifulSoup as BSHTMLLoader
+import pprint
 
 class FileLoader:
     def __init__(self, root_directory='raw_files'):
@@ -14,15 +15,15 @@ class FileLoader:
         return file_paths
 
     def read_html_file(self, file_path):
-        # Load the file content
-        with open(file_path, 'r', encoding='utf-8') as f:
+        # Load the file content with error handling for encoding issues
+        with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
             data = f.read()
 
         # Parse the HTML by creating a BeautifulSoup object
         soup = BSHTMLLoader(data, 'html.parser')
         text = soup.get_text()
         return text
-
+    
 # Example usage
 if __name__ == "__main__":
     loader = FileLoader()
