@@ -8,8 +8,6 @@ from django.urls import path
 
 from myproject.chat_models.alchemist import LangChainGPT
 
-from myproject.consumers import ChatGPTConsumer
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'server.settings')
 
 

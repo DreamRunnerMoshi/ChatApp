@@ -9,6 +9,7 @@ from .chat_models import alchemist
 
 websocket_urlpatterns = [
     path('ws/chatgpt/', ChatGPTConsumer.as_asgi()),
+    path('ws/chat', alchemist.LangChainGPT.as_asgi()),
 ]
 
 application = ProtocolTypeRouter({

@@ -2,6 +2,7 @@ import marqo
 from langchain_community.document_loaders import UnstructuredHTMLLoader
 import os
 from file_loader import FileLoader
+from beautiful_soup_parser import BeautifulSoupParser  # Import the parser
 import pprint
 
 # Initialize Marqo client
@@ -23,9 +24,12 @@ print("Total HTML files:", len(html_files))
 # Read content from each HTML file and prepare documents for indexing
 for file_path in html_files:
     content = loader.read_html_file(file_path)
+    parser = BeautifulSoupParser(content)  # Use the parser to get header and body text
+    header, body = parser.extract_header_and_body_texts()
+    print ("Header : ", header , "Body : ", body)
     documents.append({
-        "Title": os.path.basename(file_path),
-        "Description": content
+        "Title": header,
+        "Description": body
     })
 
 # Add documents to Marqo index
